@@ -18,8 +18,12 @@ export default function EditUser() {
   }
 
   useEffect(() => {
+    const loadEmployee = async () => {
+      const result = await axios.get(`http://localhost:8080/employee/${id}`);
+      setEmployee(result.data);
+    };
     loadEmployee();
-  }, []);
+  }, [id]);
 
 
   const onSubmit = async(e) => {
@@ -35,11 +39,6 @@ export default function EditUser() {
       console.error("Error updating employee:", error);
       alert("Failed to update employee: " + (error.response?.data?.message || error.message));
     }
-   };
-
-   const loadEmployee = async() => {
-    const result = await axios.get(`http://localhost:8080/employee/${id}`);
-    setEmployee(result.data);
    };
 
   const { employeename, designation, salary } = employee;
