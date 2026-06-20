@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 
 @RestController
-// @CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:3000")
 public class EmployeeController {
 
     @Autowired

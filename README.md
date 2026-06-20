@@ -22,9 +22,6 @@ npm install
 npm start
 ```
 
-Environment variables
-
-Create `.env` (or other `.env.*`) files locally for secret or environment-specific values — these are ignored by Git.
 
 License
 
