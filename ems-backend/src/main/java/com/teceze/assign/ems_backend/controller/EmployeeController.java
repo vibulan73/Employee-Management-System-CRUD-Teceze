@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 
-
-
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "${FRONTEND_URL:https://localhost:3000}"})
 public class EmployeeController {
 
     @Autowired

@@ -19,7 +19,7 @@ export default function EditUser() {
 
   useEffect(() => {
     const loadEmployee = async () => {
-      const result = await axios.get(`http://localhost:8080/employee/${id}`);
+      const result = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/employee/${id}`);
       setEmployee(result.data);
     };
     loadEmployee();
@@ -33,7 +33,7 @@ export default function EditUser() {
         ...employee,
         salary: employee.salary ? parseInt(employee.salary) : 0
       };
-      await axios.put(`http://localhost:8080/employee/${id}`, employeeData);
+      await axios.put(`${process.env.REACT_APP_API_BASE_URL}/employee/${id}`, employeeData);
       navigate("/");
     } catch (error) {
       console.error("Error updating employee:", error);

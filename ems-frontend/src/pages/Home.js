@@ -11,7 +11,7 @@ export default function Home() {
 
     const loadEmployees = async () => {
         try {
-            const result = await axios.get("http://localhost:8080/employees");
+            const result = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/employees`);
             console.log("Employees loaded:", result.data);
             setEmployees(result.data);
         } catch (error) {
@@ -20,7 +20,7 @@ export default function Home() {
     }
 
     const deleteEmployee=async(id)=>{
-        await axios.delete(`http://localhost:8080/employee/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/employee/${id}`);
         loadEmployees();
     }
 

@@ -21,7 +21,7 @@ export default function AddUser() {
         ...employee,
         salary: employee.salary ? parseInt(employee.salary) : 0
       };
-      await axios.post("http://localhost:8080/employee", employeeData);
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/employee`, employeeData);
       navigate("/");
     } catch (error) {
       console.error("Error adding employee:", error);
